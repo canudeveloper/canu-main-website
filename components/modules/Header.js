@@ -1,6 +1,7 @@
+import 'twin.macro'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import 'twin.macro'
 import DesktopNav from './DesktopNav'
 
 export default function Header({ nav }) {
@@ -18,7 +19,7 @@ export default function Header({ nav }) {
           </a>
         </Link>
         <div tw='flex flex-col justify-between'>
-          <div></div>
+          <div />
           <DesktopNav navItems={nav.fields.navItems} />
         </div>
       </div>

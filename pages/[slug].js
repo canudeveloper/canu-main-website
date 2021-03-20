@@ -30,5 +30,13 @@ export async function getStaticPaths() {
 }
 
 export default function Slug({ nav, page }) {
-  return <Page nav={nav} {...page.fields} />
+  return (
+    <Page
+      nav={nav}
+      title={page.fields.title}
+      slug={page.fields.slug}
+      description={page.fields.description}
+      robots={page.fields.robots}
+    />
+  )
 }

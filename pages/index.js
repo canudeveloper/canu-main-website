@@ -1,5 +1,6 @@
-import Page from '../components/Page'
 import { getMainNavigation, getPage } from '../lib/api'
+
+import Page from '../components/Page'
 
 export async function getStaticProps() {
   const nav = await getMainNavigation()
@@ -14,5 +15,13 @@ export async function getStaticProps() {
 }
 
 export default function Home({ nav, page }) {
-  return <Page nav={nav} {...page.fields} />
+  return (
+    <Page
+      nav={nav}
+      title={page.fields.title}
+      slug={page.fields.slug}
+      description={page.fields.description}
+      robots={page.fields.robots}
+    />
+  )
 }

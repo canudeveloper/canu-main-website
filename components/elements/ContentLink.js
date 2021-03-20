@@ -4,9 +4,11 @@ import { useRouter } from 'next/router'
 function url(contentType, slug) {
   switch (contentType) {
     case 'page':
-      return slug == 'home' ? '/' : `/${slug}`
+      return slug === 'home' ? '/' : `/${slug}`
     case 'story':
       return `/stories/${slug}`
+    default:
+      return '/'
   }
 }
 

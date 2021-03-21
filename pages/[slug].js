@@ -1,18 +1,6 @@
 import Page from '../components/Page'
 import { getMainNavigation, getPage, getAllPages } from '../lib/api'
 
-export async function getStaticProps({ params }) {
-  const nav = await getMainNavigation()
-  const page = await getPage(params.slug)
-
-  return {
-    props: {
-      nav,
-      page,
-    },
-  }
-}
-
 export async function getStaticPaths() {
   const pages = await getAllPages()
   const paths = pages.map((page) => {
@@ -26,6 +14,18 @@ export async function getStaticPaths() {
   return {
     paths,
     fallback: false,
+  }
+}
+
+export async function getStaticProps({ params }) {
+  const nav = await getMainNavigation()
+  const page = await getPage(params.slug)
+
+  return {
+    props: {
+      nav,
+      page,
+    },
   }
 }
 

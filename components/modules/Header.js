@@ -7,7 +7,7 @@ import DesktopNav from './DesktopNav'
 
 const Hamburger = tw(Bars)`md:hidden p-3`
 
-export default function Header({ nav }) {
+export default function Header({ site }) {
   return (
     <header tw='flex bg-white md:shadow-underline h-24'>
       <div tw='container pt-4 flex justify-between'>
@@ -29,7 +29,7 @@ export default function Header({ nav }) {
           </div>
           <div>
             <Hamburger size={44} />
-            <DesktopNav navItems={nav.fields.navItems} />
+            <DesktopNav navItems={site.mainNavigation} />
           </div>
         </div>
       </div>

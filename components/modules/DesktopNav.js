@@ -1,5 +1,5 @@
 import tw, { styled } from 'twin.macro'
-import ContentLink from '../elements/ContentLink'
+import EntryLink from '../elements/EntryLink'
 
 const NavItem = styled.a(({ isActive }) => [
   tw`p-2.5 rounded-t font-bold uppercase leading-none text-button tracking-button border-b-4 border-primary hover:border-black`,
@@ -11,11 +11,11 @@ export default function DesktopNav({ navItems }) {
     <nav tw='hidden md:flex'>
       {navItems.map(({ fields, sys }) => {
         return (
-          <ContentLink to={fields.link} key={sys.id}>
+          <EntryLink entry={fields.entry} key={sys.id}>
             {(isActive) => (
               <NavItem isActive={isActive}>{fields.title}</NavItem>
             )}
-          </ContentLink>
+          </EntryLink>
         )
       })}
     </nav>

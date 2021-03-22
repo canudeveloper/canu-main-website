@@ -12,9 +12,9 @@ function url(contentType, slug) {
   }
 }
 
-export default function ContentLink({ to, children }) {
+export default function EntryLink({ entry, children }) {
   const router = useRouter()
-  const href = url(to.sys.contentType.sys.id, to.fields.slug)
+  const href = url(entry.sys.contentType.sys.id, entry.fields.slug)
 
   return (
     <Link href={href} passHref>

@@ -1,26 +1,18 @@
 import Page from '../components/Page'
-import { getMainNavigation, getPage } from '../lib/api'
+import { getPage, getSiteSettings } from '../lib/api'
 
 export async function getStaticProps() {
-  const nav = await getMainNavigation()
+  const site = await getSiteSettings()
   const page = await getPage('home')
 
   return {
     props: {
-      nav,
+      site,
       page,
     },
   }
 }
 
-export default function Home({ nav, page }) {
-  return (
-    <Page
-      nav={nav}
-      title={page.fields.title}
-      slug={page.fields.slug}
-      description={page.fields.description}
-      robots={page.fields.robots}
-    />
-  )
+export default function Home({ site, page }) {
+  return <Page site={site} page={page} />
 }

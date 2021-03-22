@@ -1,5 +1,5 @@
 import Page from '../components/Page'
-import { getAllPages, getMainNavigation, getPage } from '../lib/api'
+import { getAllPages, getPage, getSiteSettings } from '../lib/api'
 
 export async function getStaticPaths() {
   const pages = await getAllPages()
@@ -18,25 +18,17 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const nav = await getMainNavigation()
+  const site = await getSiteSettings()
   const page = await getPage(params.slug)
 
   return {
     props: {
-      nav,
+      site,
       page,
     },
   }
 }
 
-export default function Slug({ nav, page }) {
-  return (
-    <Page
-      nav={nav}
-      title={page.fields.title}
-      slug={page.fields.slug}
-      description={page.fields.description}
-      robots={page.fields.robots}
-    />
-  )
+export default function Slug({ site, page }) {
+  return <Page site={site} page={page} />
 }

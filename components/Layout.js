@@ -2,10 +2,18 @@ import Head from 'next/head'
 import 'twin.macro'
 import Header from './modules/Header'
 
-export default function Layout({ nav, children }) {
+export default function Layout({ site, page, children }) {
   return (
     <div tw='flex flex-col min-h-screen font-sans'>
       <Head>
+        <title>
+          {page.slug !== 'home' ? `${page.title} | ` : ''}
+          {site.name}
+        </title>
+        {page.description && (
+          <meta name='description' content={page.description} />
+        )}
+        {page.robots && <meta name='robots' content={page.robots} />}
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link
           rel='stylesheet'
@@ -34,7 +42,7 @@ export default function Layout({ nav, children }) {
         <meta name='msapplication-TileColor' content='#da532c' />
         <meta name='theme-color' content='#ffffff' />
       </Head>
-      <Header nav={nav} />
+      <Header site={site} />
       <main tw='flex-1'>{children}</main>
     </div>
   )

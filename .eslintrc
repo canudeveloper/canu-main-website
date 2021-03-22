@@ -20,8 +20,14 @@
   ],
   "rules": {
     "jsx-a11y/anchor-is-valid": 0,
-    "react/prop-types": 0,
-    "react/react-in-jsx-scope": 0,
+    "import/order": [
+      1,
+      {
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
     "react/jsx-filename-extension": [
       1,
       {
@@ -30,6 +36,8 @@
           ".jsx"
         ]
       }
-    ]
+    ],
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0
   }
 }

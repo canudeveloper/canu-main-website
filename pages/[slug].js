@@ -1,5 +1,5 @@
 import Page from '../components/Page'
-import { getMainNavigation, getPage, getAllPages } from '../lib/api'
+import { getAllPages, getMainNavigation, getPage } from '../lib/api'
 
 export async function getStaticPaths() {
   const pages = await getAllPages()

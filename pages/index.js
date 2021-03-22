@@ -1,6 +1,5 @@
-import { getMainNavigation, getPage } from '../lib/api'
-
 import Page from '../components/Page'
+import { getMainNavigation, getPage } from '../lib/api'
 
 export async function getStaticProps() {
   const nav = await getMainNavigation()

@@ -1,11 +1,11 @@
-import { Bars } from '@styled-icons/fa-solid'
+import { Facebook, Instagram, Youtube } from '@styled-icons/fa-brands'
+import { Bars, Envelope } from '@styled-icons/fa-solid'
 import Image from 'next/image'
 import Link from 'next/link'
 import tw from 'twin.macro'
+import linkTo from '../../utils/linkTo'
 import Button from '../elements/Button'
 import DesktopNav from './DesktopNav'
-
-const Hamburger = tw(Bars)`md:hidden p-3`
 
 export default function Header({ site }) {
   return (
@@ -24,11 +24,38 @@ export default function Header({ site }) {
           </Link>
         </div>
         <div tw='flex flex-col justify-between items-end'>
-          <div tw='flex justify-end'>
-            <Button>Donate</Button>
+          <div tw='flex items-center justify-end'>
+            <div tw='hidden md:flex mr-5'>
+              {site.facebook && (
+                <a href={site.facebook} target='_blank' rel='noreferrer'>
+                  <Facebook size={32} css={tw`p-2 mx-2`} />
+                </a>
+              )}
+              {site.instagram && (
+                <a href={site.instagram} target='_blank' rel='noreferrer'>
+                  <Instagram size={32} css={tw`p-2 mx-2`} />
+                </a>
+              )}
+              {site.youtube && (
+                <a href={site.youtube} target='_blank' rel='noreferrer'>
+                  <Youtube size={32} css={tw`p-2 mx-2`} />
+                </a>
+              )}
+              {site.email && (
+                <a href={`mailto:${site.email}`} tw='font-medium'>
+                  <Envelope size={32} css={tw`p-2 mx-2`} />
+                  {site.email}
+                </a>
+              )}
+            </div>
+            {site.headerCTA && (
+              <Link href={linkTo(site.headerCTA.fields.entry)} passHref>
+                <Button>{site.headerCTA.fields.title}</Button>
+              </Link>
+            )}
           </div>
           <div>
-            <Hamburger size={44} />
+            <Bars size={44} css={tw`md:hidden p-3`} />
             <DesktopNav navItems={site.mainNavigation} />
           </div>
         </div>

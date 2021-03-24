@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Youtube } from '@styled-icons/fa-brands'
-import { Bars, Envelope } from '@styled-icons/fa-solid'
+import { Envelope } from '@styled-icons/fa-solid'
 import Image from 'next/image'
 import Link from 'next/link'
 import tw from 'twin.macro'
@@ -25,39 +25,44 @@ export default function Header({ site }) {
         </div>
         <div tw='flex flex-col justify-between items-end'>
           <div tw='flex items-center justify-end'>
-            <div tw='hidden md:flex mr-5'>
+            <ul tw='hidden md:flex mr-5'>
               {site.facebook && (
-                <a href={site.facebook} target='_blank' rel='noreferrer'>
-                  <Facebook size={32} css={tw`p-2 mx-2`} />
-                </a>
+                <li>
+                  <a href={site.facebook} target='_blank' rel='noreferrer'>
+                    <Facebook size={32} css={tw`p-2 mx-2`} />
+                  </a>
+                </li>
               )}
               {site.instagram && (
-                <a href={site.instagram} target='_blank' rel='noreferrer'>
-                  <Instagram size={32} css={tw`p-2 mx-2`} />
-                </a>
+                <li>
+                  <a href={site.instagram} target='_blank' rel='noreferrer'>
+                    <Instagram size={32} css={tw`p-2 mx-2`} />
+                  </a>
+                </li>
               )}
               {site.youtube && (
-                <a href={site.youtube} target='_blank' rel='noreferrer'>
-                  <Youtube size={32} css={tw`p-2 mx-2`} />
-                </a>
+                <li>
+                  <a href={site.youtube} target='_blank' rel='noreferrer'>
+                    <Youtube size={32} css={tw`p-2 mx-2`} />
+                  </a>
+                </li>
               )}
               {site.email && (
-                <a href={`mailto:${site.email}`} tw='font-medium'>
-                  <Envelope size={32} css={tw`p-2 mx-2`} />
-                  {site.email}
-                </a>
+                <li>
+                  <a href={`mailto:${site.email}`} tw='font-medium'>
+                    <Envelope size={32} css={tw`p-2 mx-2`} />
+                    {site.email}
+                  </a>
+                </li>
               )}
-            </div>
+            </ul>
             {site.headerCTA && (
               <Link href={linkTo(site.headerCTA.fields.entry)} passHref>
                 <Button>{site.headerCTA.fields.title}</Button>
               </Link>
             )}
           </div>
-          <div>
-            <Bars size={44} css={tw`md:hidden p-3`} />
-            <DesktopNav navItems={site.mainNavigation} />
-          </div>
+          <DesktopNav navItems={site.mainNavigation} />
         </div>
       </div>
     </header>

@@ -25,6 +25,7 @@ module.exports = {
       success: '#def6ca',
       black: '#010001',
       gray: {
+        light: '#c9c9c9',
         DEFAULT: '#757575',
         dark: '#262626',
       },

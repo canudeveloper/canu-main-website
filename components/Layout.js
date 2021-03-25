@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import 'twin.macro'
+import Footer from './modules/Footer'
 import Header from './modules/Header'
 
 export default function Layout({ site, page, children }) {
@@ -44,6 +45,7 @@ export default function Layout({ site, page, children }) {
       </Head>
       <Header site={site} />
       <main tw='flex-1'>{children}</main>
+      <Footer site={site} />
     </div>
   )
 }

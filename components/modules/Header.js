@@ -1,4 +1,3 @@
-import { Facebook, Instagram, Youtube } from '@styled-icons/fa-brands'
 import { Envelope } from '@styled-icons/fa-solid'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -26,32 +25,14 @@ export default function Header({ site }) {
         <div tw='flex flex-col justify-between items-end'>
           <div tw='flex items-center justify-end'>
             <ul tw='hidden md:flex mr-5'>
-              {site.facebook && (
-                <li>
-                  <a href={site.facebook} target='_blank' rel='noreferrer'>
-                    <Facebook size={32} css={tw`p-2 mx-2`} />
-                  </a>
-                </li>
-              )}
-              {site.instagram && (
-                <li>
-                  <a href={site.instagram} target='_blank' rel='noreferrer'>
-                    <Instagram size={32} css={tw`p-2 mx-2`} />
-                  </a>
-                </li>
-              )}
-              {site.youtube && (
-                <li>
-                  <a href={site.youtube} target='_blank' rel='noreferrer'>
-                    <Youtube size={32} css={tw`p-2 mx-2`} />
-                  </a>
-                </li>
-              )}
               {site.email && (
                 <li>
-                  <a href={`mailto:${site.email}`} tw='font-medium'>
-                    <Envelope size={32} css={tw`p-2 mx-2`} />
-                    {site.email}
+                  <a
+                    tw='inline-block font-medium p-2'
+                    href={`mailto:${site.email}`}
+                  >
+                    <Envelope size={16} css={tw`mb-0.5`} />
+                    <span tw='ml-2'>{site.email}</span>
                   </a>
                 </li>
               )}

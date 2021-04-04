@@ -5,7 +5,7 @@ import tw, { styled } from 'twin.macro'
 import linkTo from '../../utils/linkTo'
 
 const NavItem = styled.a(({ isActive }) => [
-  tw`inline-block p-2.5 rounded-t font-bold uppercase leading-none text-button tracking-button border-b-4 border-primary hover:border-black`,
+  tw`inline-block p-2.5 rounded-t font-bold uppercase text-sm-none tracking-button border-b-4 border-primary hover:border-black`,
   isActive && tw`bg-primary text-white`,
 ])
 

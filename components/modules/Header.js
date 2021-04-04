@@ -39,7 +39,7 @@ export default function Header({ site }) {
             </ul>
             {site.headerCTA && (
               <Link href={linkTo(site.headerCTA.fields.entry)} passHref>
-                <Button>{site.headerCTA.fields.title}</Button>
+                <Button as='a'>{site.headerCTA.fields.title}</Button>
               </Link>
             )}
           </div>

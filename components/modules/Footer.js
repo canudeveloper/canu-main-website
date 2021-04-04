@@ -1,13 +1,27 @@
 import { Facebook, Instagram, Youtube } from '@styled-icons/fa-brands'
 import { Building, Envelope, Fax, Phone } from '@styled-icons/fa-solid'
 import Link from 'next/link'
+import React from 'react'
 import tw from 'twin.macro'
 import linkTo from '../../utils/linkTo'
+import SubscribeForm from '../elements/SubscribeForm'
 
 const Column = tw.div`w-full md:w-1/3 p-4`
-const Heading = tw.h2`font-bold text-white mb-3`
+const Heading = tw.h2`font-bold text-white mb-4`
 const List = tw.ul`text-sm text-gray-light`
 const ListItem = tw.li`mt-2`
+
+function Social({ href, icon }) {
+  return (
+    href && (
+      <li>
+        <a tw='inline-block ml-5' href={href} target='_blank' rel='noreferrer'>
+          {React.createElement(icon, { size: 24 })}
+        </a>
+      </li>
+    )
+  )
+}
 
 export default function Footer({ site }) {
   return (
@@ -69,43 +83,11 @@ export default function Footer({ site }) {
           </Column>
           <Column>
             <Heading>Get Involved</Heading>
-            <ul tw='flex text-white'>
-              {site.facebook && (
-                <li>
-                  <a
-                    tw='inline-block mr-5'
-                    href={site.facebook}
-                    target='_blank'
-                    rel='noreferrer'
-                  >
-                    <Facebook size={24} />
-                  </a>
-                </li>
-              )}
-              {site.instagram && (
-                <li>
-                  <a
-                    tw='inline-block mr-5'
-                    href={site.instagram}
-                    target='_blank'
-                    rel='noreferrer'
-                  >
-                    <Instagram size={24} />
-                  </a>
-                </li>
-              )}
-              {site.youtube && (
-                <li>
-                  <a
-                    tw='inline-block mr-5'
-                    href={site.youtube}
-                    target='_blank'
-                    rel='noreferrer'
-                  >
-                    <Youtube size={24} />
-                  </a>
-                </li>
-              )}
+            <SubscribeForm />
+            <ul tw='flex justify-end text-white'>
+              <Social href={site.facebook} icon={Facebook} />
+              <Social href={site.instagram} icon={Instagram} />
+              <Social href={site.youtube} icon={Youtube} />
             </ul>
           </Column>
         </div>

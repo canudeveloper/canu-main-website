@@ -5,7 +5,7 @@ module.exports = {
         underline: 'inset 0px -4px 0px 0px #bb2025',
       },
       fontSize: {
-        button: '0.875rem',
+        'sm-none': ['0.875rem', '1rem'],
       },
       letterSpacing: {
         button: '0.25em',

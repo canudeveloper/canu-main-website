@@ -1,20 +1,25 @@
 import { Check, Spinner } from '@styled-icons/fa-solid'
 import axios from 'axios'
 import { useState } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import tw from 'twin.macro'
 import Button from './Button'
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
-    const res = await axios.post('/api/subscribe', { email })
 
-    if (res.status === 200) {
-      setStatus('success')
+    const token = await executeRecaptcha('subscribe_form')
+    const recaptcha = await axios.post('/api/recaptcha', { token })
+
+    if (recaptcha.data.score > 0.5) {
+      const res = await axios.post('/api/subscribe', { email })
+      setStatus(res.status === 200 ? 'success' : 'idle')
     } else {
       setStatus('idle')
     }

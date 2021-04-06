@@ -8,7 +8,7 @@ import DesktopNav from './DesktopNav'
 
 export default function Header({ site }) {
   return (
-    <header tw='flex bg-white md:shadow-underline h-24'>
+    <header tw='flex bg-white lg:shadow-underline h-26'>
       <div tw='container pt-4 flex justify-between'>
         <div tw='flex items-center'>
           <Link href='/'>
@@ -24,7 +24,7 @@ export default function Header({ site }) {
         </div>
         <div tw='flex flex-col justify-between items-end'>
           <div tw='flex items-center justify-end'>
-            <ul tw='hidden md:flex mr-5'>
+            <ul tw='hidden lg:flex mr-5'>
               {site.email && (
                 <li>
                   <a

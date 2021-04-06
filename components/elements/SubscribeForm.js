@@ -38,13 +38,13 @@ export default function SubscribeForm() {
         disabled={status !== 'idle'}
         css={[
           tw`w-44 rounded-l-none`,
-          status === 'success' && tw`bg-success text-black hover:bg-success`,
+          status === 'success' && tw`bg-success text-black hocus:bg-success`,
         ]}
       >
         {
           {
             idle: 'Subscribe',
-            sending: <Spinner tw='animate-spin' size='14' />,
+            sending: <Spinner size='14' tw='animate-spin' />,
             success: <Check size='14' />,
           }[status]
         }

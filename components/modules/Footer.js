@@ -10,8 +10,7 @@ const Column = tw.div`w-full md:w-1/3 p-4`
 const Heading = tw.h2`font-bold text-white mb-4`
 const List = tw.ul`text-sm text-gray-light`
 const ListItem = tw.li`mt-2`
-
-function Social({ href, icon }) {
+const Social = ({ href, icon }) => {
   return (
     href && (
       <li>

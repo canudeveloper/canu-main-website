@@ -7,6 +7,9 @@ module.exports = {
       fontSize: {
         'sm-none': ['0.875rem', '1rem'],
       },
+      height: {
+        26: '6.5rem',
+      },
       letterSpacing: {
         button: '0.25em',
       },

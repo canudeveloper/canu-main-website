@@ -7,10 +7,6 @@ export default function Layout({ site, page, children }) {
   return (
     <div tw='flex flex-col min-h-screen font-sans'>
       <Head>
-        <title>
-          {page.slug !== 'home' ? `${page.title} | ` : ''}
-          {site.name}
-        </title>
         {page.description && (
           <meta name='description' content={page.description} />
         )}

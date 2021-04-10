@@ -1,9 +1,9 @@
-import Page from '../components/Page'
-import { getPage, getSiteSettings } from '../lib/api'
+import HomePage from '../components/pages/HomePage'
+import { getSingletonEntry } from '../lib/api'
 
 export async function getStaticProps() {
-  const site = await getSiteSettings()
-  const page = await getPage('home')
+  const site = await getSingletonEntry('siteSettings', 2)
+  const page = await getSingletonEntry('pageHome')
 
   return {
     props: {
@@ -14,5 +14,5 @@ export async function getStaticProps() {
 }
 
 export default function Home({ site, page }) {
-  return <Page site={site} page={page} />
+  return <HomePage site={site} page={page} />
 }

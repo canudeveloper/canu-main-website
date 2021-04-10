@@ -4,8 +4,8 @@ export default function linkTo(entry) {
 
   switch (contentType) {
     case 'page':
-      return slug === 'home' ? '/' : `/${slug}`
-    case 'story':
+      return `/${slug}`
+    case 'pageStory':
       return `/stories/${slug}`
     default:
       return '/'

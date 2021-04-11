@@ -10,7 +10,7 @@ const NavItem = styled.a(({ isActive }) => [
 ])
 
 const DropdownItem = styled.a(({ isActive }) => [
-  tw`inline-block p-2.5 w-full break-words font-bold uppercase text-sm-none tracking-button border-b border-primary hocus:(bg-primary-light text-black)`,
+  tw`inline-block p-2.5 w-full break-words font-bold uppercase text-sm-none tracking-button border-b border-primary bg-white hocus:(bg-primary-light text-black)`,
   `-webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;`,
   isActive && tw`bg-primary text-white`,
 ])

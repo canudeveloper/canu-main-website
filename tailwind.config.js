@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
     extend: {
+      backgroundImage: {
+        'hero-gradient':
+          'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.4) 80%, rgba(255,255,255,1) 100%)',
+      },
       boxShadow: {
         underline: 'inset 0px -4px 0px 0px #bb2025',
       },
@@ -9,9 +13,13 @@ module.exports = {
       },
       height: {
         26: '6.5rem',
+        'main-screen': 'calc(100vh - 104px)',
       },
       letterSpacing: {
         button: '0.25em',
+      },
+      zIndex: {
+        '-10': '-10',
       },
     },
     colors: {

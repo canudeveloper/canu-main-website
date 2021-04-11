@@ -8,7 +8,7 @@ import DesktopNav from './DesktopNav'
 
 export default function Header({ site }) {
   return (
-    <header tw='flex bg-white lg:shadow-underline h-26'>
+    <header tw='flex bg-white shadow-underline h-26 z-10'>
       <div tw='container pt-4 flex justify-between'>
         <div tw='flex items-center'>
           <Link href='/'>

@@ -55,11 +55,11 @@ export default function HeroSlider({ slides }) {
             <span tw='block font-bold text-4xl lg:text-6xl'>{` ${slide.fields.heading}`}</span>
           </motion.h1>
         </AnimatePresence>
-        <div tw='flex items-center absolute bottom-0 right-0 px-8 mb-4'>
+        <div tw='flex absolute bottom-0 right-0 px-8 mb-4'>
           {slides.map((x) => {
             const index = slides.indexOf(x)
             return (
-              <>
+              <div key={index} tw='flex items-center'>
                 <button
                   key={index}
                   type='button'
@@ -79,7 +79,7 @@ export default function HeroSlider({ slides }) {
                     />
                   )}
                 </AnimatePresence>
-              </>
+              </div>
             )
           })}
         </div>

@@ -13,10 +13,16 @@ module.exports = {
       },
       height: {
         26: '6.5rem',
+        120: '30rem',
+        160: '40rem',
+        200: '50rem',
         'main-screen': 'calc(100vh - 104px)',
       },
       letterSpacing: {
         button: '0.25em',
+      },
+      screens: {
+        '3xl': '1920px',
       },
       zIndex: {
         '-10': '-10',

@@ -29,6 +29,7 @@ export default function HeroSlider({ slides }) {
               alt={slide.fields.image.fields.description}
               layout='fill'
               tw='object-cover object-center pointer-events-none -z-10'
+              loading='eager'
               priority
             />
           </motion.div>

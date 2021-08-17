@@ -16,8 +16,8 @@ export default function Header({ site }) {
               <Image
                 src='/logo.svg'
                 alt='CanU Canada Logo'
-                width='102'
-                height='60'
+                width={102}
+                height={60}
               />
             </a>
           </Link>

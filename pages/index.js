@@ -3,7 +3,7 @@ import { getSingletonEntry } from '../lib/api'
 
 export async function getStaticProps() {
   const site = await getSingletonEntry('siteSettings', 2)
-  const page = await getSingletonEntry('pageHome')
+  const page = await getSingletonEntry('pageHome', 3)
 
   return {
     props: {

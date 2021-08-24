@@ -34,6 +34,7 @@ export default function SubscribeForm() {
         tw='w-full px-2.5 py-1.5 rounded-l text-sm-none bg-white'
       />
       <Button
+        variant='secondary'
         type='submit'
         disabled={status !== 'idle'}
         css={[

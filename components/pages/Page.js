@@ -1,17 +1,17 @@
 import Head from 'next/head'
 import 'twin.macro'
 import Layout from '../Layout'
-import Hero from '../modules/Hero'
+import Slice from '../slices'
 
-export default function Page({ site, page }) {
+export default function Page({ header, footer, page }) {
   return (
-    <Layout site={site} page={page}>
+    <Layout header={header} footer={footer} page={page}>
       <Head>
-        <title>{`${page.title} | ${site.name}`}</title>
+        <title>{`${page.title} | CanU Canada`}</title>
       </Head>
-      <Hero image={page.bannerImage}>
-        <h1 tw='block font-bold text-4xl lg:text-6xl'>{page.heading}</h1>
-      </Hero>
+      {page.slices.map((slice) => {
+        return <Slice key={slice.id} slice={slice} />
+      })}
     </Layout>
   )
 }

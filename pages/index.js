@@ -1,18 +1,20 @@
 import HomePage from '../components/pages/HomePage'
-import { getSingletonEntry } from '../lib/api'
+import get from '../lib/api'
 
 export async function getStaticProps() {
-  const site = await getSingletonEntry('siteSettings', 2)
-  const page = await getSingletonEntry('pageHome', 3)
+  const header = await get('/header')
+  const footer = await get('/footer')
+  const page = await get('/home-page')
 
   return {
     props: {
-      site,
+      header,
+      footer,
       page,
     },
   }
 }
 
-export default function Home({ site, page }) {
-  return <HomePage site={site} page={page} />
+export default function Home({ header, footer, page }) {
+  return <HomePage header={header} footer={footer} page={page} />
 }

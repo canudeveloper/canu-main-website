@@ -12,7 +12,6 @@
     "@styled-icons/fa-regular": "^10.26.0",
     "@styled-icons/fa-solid": "^10.26.0",
     "axios": "^0.21.1",
-    "contentful": "^8.2.0",
     "framer-motion": "^4.1.2",
     "next": "10.0.8",
     "react": "^17.0.2",

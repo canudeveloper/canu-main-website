@@ -3,7 +3,6 @@ import { Building, Envelope, Fax, Phone } from '@styled-icons/fa-solid'
 import Link from 'next/link'
 import React from 'react'
 import tw from 'twin.macro'
-import linkTo from '../../utils/linkTo'
 import SubscribeForm from '../elements/SubscribeForm'
 
 const Column = tw.div`w-full md:w-1/3 p-4`
@@ -22,7 +21,7 @@ const Social = ({ href, icon }) => {
   )
 }
 
-export default function Footer({ site }) {
+export default function Footer({ footer }) {
   return (
     <footer tw='bg-gray-dark'>
       <div tw='container py-8'>
@@ -30,35 +29,35 @@ export default function Footer({ site }) {
           <Column>
             <Heading>Contact</Heading>
             <List>
-              {site.phone && (
+              {footer.phone && (
                 <ListItem>
-                  <a href={`tel:${site.phone}`}>
+                  <a href={`tel:${footer.phone}`}>
                     <Phone size={14} css={tw`mr-2.5`} />
-                    <span>{site.phone}</span>
+                    <span>{footer.phone}</span>
                   </a>
                 </ListItem>
               )}
-              {site.fax && (
+              {footer.fax && (
                 <ListItem>
-                  <a href={`fax:${site.fax}`}>
+                  <a href={`fax:${footer.fax}`}>
                     <Fax size={14} css={tw`mr-2.5`} />
-                    <span>{site.fax}</span>
+                    <span>{footer.fax}</span>
                   </a>
                 </ListItem>
               )}
-              {site.email && (
+              {footer.email && (
                 <ListItem>
-                  <a href={`mailto:${site.email}`}>
+                  <a href={`mailto:${footer.email}`}>
                     <Envelope size={14} css={tw`mr-2.5`} />
-                    <span>{site.email}</span>
+                    <span>{footer.email}</span>
                   </a>
                 </ListItem>
               )}
-              {site.address && (
+              {footer.address && (
                 <ListItem>
-                  <a href={`${site.address}`} tw='flex'>
+                  <a href={`${footer.address}`} tw='flex'>
                     <Building size={14} css={tw`mr-2.5 mt-1 flex-shrink-0`} />
-                    <span tw='whitespace-pre-wrap'>{site.address}</span>
+                    <span tw='whitespace-pre-wrap'>{footer.address}</span>
                   </a>
                 </ListItem>
               )}
@@ -67,13 +66,11 @@ export default function Footer({ site }) {
           <Column>
             <Heading>Explore</Heading>
             <List>
-              {site.footerNavigation.map(({ fields, sys }) => {
-                const href = linkTo(fields.entry)
-
+              {footer.navigation.map((link) => {
                 return (
-                  <ListItem key={sys.id}>
-                    <Link href={href}>
-                      <a>{fields.title}</a>
+                  <ListItem key={link.id}>
+                    <Link href={link.href}>
+                      <a>{link.label}</a>
                     </Link>
                   </ListItem>
                 )
@@ -103,9 +100,9 @@ export default function Footer({ site }) {
               apply.
             </div>
             <ul tw='flex justify-end text-white'>
-              <Social href={site.facebook} icon={Facebook} />
-              <Social href={site.instagram} icon={Instagram} />
-              <Social href={site.youtube} icon={Youtube} />
+              <Social href={footer.facebook} icon={Facebook} />
+              <Social href={footer.instagram} icon={Instagram} />
+              <Social href={footer.youtube} icon={Youtube} />
             </ul>
           </Column>
         </div>

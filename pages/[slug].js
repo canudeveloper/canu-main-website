@@ -1,12 +1,12 @@
 import Page from '../components/pages/Page'
-import { getAllEntries, getEntry, getSingletonEntry } from '../lib/api'
+import get from '../lib/api'
 
 export async function getStaticPaths() {
-  const pages = await getAllEntries('page')
+  const pages = await get('/pages')
   const paths = pages.map((page) => {
     return {
       params: {
-        slug: page.fields.slug,
+        slug: page.slug,
       },
     }
   })
@@ -18,17 +18,19 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const site = await getSingletonEntry('siteSettings', 2)
-  const page = await getEntry('page', params.slug)
+  const header = await get('/header')
+  const footer = await get('/footer')
+  const page = (await get(`/pages/?slug=${params.slug}`))[0]
 
   return {
     props: {
-      site,
+      header,
+      footer,
       page,
     },
   }
 }
 
-export default function Slug({ site, page }) {
-  return <Page site={site} page={page} />
+export default function Slug({ header, footer, page }) {
+  return <Page header={header} footer={footer} page={page} />
 }

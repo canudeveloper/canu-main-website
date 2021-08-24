@@ -2,10 +2,10 @@ import { AnimatePresence, motion, useCycle } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect } from 'react'
 import 'twin.macro'
+import { strapi } from '../../lib/api'
 
 export default function HeroSlider({ slides }) {
   const [slide, cycleSlide] = useCycle(...slides)
-  const imageUrl = slide.fields.image.fields.file.url
 
   useEffect(() => {
     const timeOut = setTimeout(cycleSlide, 5000)
@@ -17,7 +17,7 @@ export default function HeroSlider({ slides }) {
       <div tw='relative flex-1'>
         <AnimatePresence>
           <motion.div
-            key={imageUrl}
+            key={slide.id}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -25,8 +25,8 @@ export default function HeroSlider({ slides }) {
           >
             <div tw='absolute w-full h-full bg-hero-gradient' />
             <Image
-              src={`https:${imageUrl}?&w=1536`}
-              alt={slide.fields.image.fields.description}
+              src={strapi(slide.image.formats.large.url)}
+              alt={slide.image.alternativeText}
               layout='fill'
               tw='object-cover object-center pointer-events-none -z-10'
               loading='eager'
@@ -43,7 +43,7 @@ export default function HeroSlider({ slides }) {
       <div tw='container relative h-44 z-10'>
         <AnimatePresence>
           <motion.h1
-            key={slide.fields.heading}
+            key={slide.id}
             initial={{ x: '10%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: '-10%', opacity: 0 }}
@@ -51,9 +51,9 @@ export default function HeroSlider({ slides }) {
             tw='absolute top-0 right-0 px-8 text-right'
           >
             <span tw='block text-primary text-xl lg:text-2xl uppercase tracking-widest mb-1'>
-              {slide.fields.subheading}
+              {slide.label}
             </span>
-            <span tw='block font-bold text-4xl lg:text-6xl'>{` ${slide.fields.heading}`}</span>
+            <span tw='block font-bold text-4xl lg:text-6xl'>{` ${slide.title}`}</span>
           </motion.h1>
         </AnimatePresence>
         <div tw='flex absolute bottom-0 right-0 px-8 mb-4'>

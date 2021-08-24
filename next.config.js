@@ -2,7 +2,7 @@
 
 module.exports = {
   images: {
-    domains: ['images.ctfassets.net'],
+    domains: ['localhost'],
   },
   webpack: (config, { isServer }) => {
     // Fixes packages that depend on fs/module module

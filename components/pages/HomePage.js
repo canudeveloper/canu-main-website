@@ -1,19 +1,15 @@
 import Head from 'next/head'
 import Layout from '../Layout'
-import HeroSlider from '../modules/HeroSlider'
-import Section from '../sections'
+import Slice from '../slices'
 
-export default function HomePage({ site, page }) {
+export default function HomePage({ header, footer, page }) {
   return (
-    <Layout site={site} page={page}>
+    <Layout header={header} footer={footer} page={page}>
       <Head>
-        <title>{`${site.name} | ${page.title}`}</title>
+        <title>{`CanU Canada | ${page.title}`}</title>
       </Head>
-      <HeroSlider slides={page.heroSlider} />
-      {page.sections.map(({ fields, sys }) => {
-        return (
-          <Section key={sys.id} type={sys.contentType.sys.id} fields={fields} />
-        )
+      {page.slices.map((slice) => {
+        return <Slice key={slice.id} slice={slice} />
       })}
     </Layout>
   )

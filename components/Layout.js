@@ -3,14 +3,13 @@ import 'twin.macro'
 import Footer from './modules/Footer'
 import Header from './modules/Header'
 
-export default function Layout({ site, page, children }) {
+export default function Layout({ header, footer, page, children }) {
   return (
     <div tw='flex flex-col min-h-screen font-sans'>
       <Head>
         {page.description && (
           <meta name='description' content={page.description} />
         )}
-        {page.robots && <meta name='robots' content={page.robots} />}
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link
           rel='stylesheet'
@@ -39,9 +38,9 @@ export default function Layout({ site, page, children }) {
         <meta name='msapplication-TileColor' content='#da532c' />
         <meta name='theme-color' content='#ffffff' />
       </Head>
-      <Header site={site} />
+      <Header header={header} />
       <main tw='flex-1'>{children}</main>
-      <Footer site={site} />
+      <Footer footer={footer} />
     </div>
   )
 }

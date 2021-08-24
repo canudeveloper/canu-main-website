@@ -2,11 +2,10 @@ import { Envelope } from '@styled-icons/fa-solid'
 import Image from 'next/image'
 import Link from 'next/link'
 import tw from 'twin.macro'
-import linkTo from '../../utils/linkTo'
 import Button from '../elements/Button'
 import DesktopNav from './DesktopNav'
 
-export default function Header({ site }) {
+export default function Header({ header }) {
   return (
     <header tw='flex bg-white shadow-underline h-26 z-10'>
       <div tw='container pt-4 flex justify-between'>
@@ -25,25 +24,27 @@ export default function Header({ site }) {
         <div tw='flex flex-col justify-between items-end'>
           <div tw='flex items-center justify-end'>
             <ul tw='hidden lg:flex mr-5'>
-              {site.email && (
+              {header.email && (
                 <li>
                   <a
                     tw='inline-block font-medium p-2'
-                    href={`mailto:${site.email}`}
+                    href={`mailto:${header.email}`}
                   >
                     <Envelope size={16} css={tw`mb-0.5`} />
-                    <span tw='ml-2'>{site.email}</span>
+                    <span tw='ml-2'>{header.email}</span>
                   </a>
                 </li>
               )}
             </ul>
-            {site.headerCTA && (
-              <Link href={linkTo(site.headerCTA.fields.entry)} passHref>
-                <Button as='a'>{site.headerCTA.fields.title}</Button>
+            {header.button && (
+              <Link href={header.button.href} passHref>
+                <Button variant={header.button.style}>
+                  {header.button.label}
+                </Button>
               </Link>
             )}
           </div>
-          <DesktopNav navItems={site.mainNavigation} />
+          <DesktopNav navItems={header.navigation} />
         </div>
       </div>
     </header>

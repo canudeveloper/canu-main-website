@@ -1,15 +1,9 @@
 import Head from 'next/head'
-import 'twin.macro'
-import Footer from './modules/Footer'
-import Header from './modules/Header'
 
-export default function Layout({ header, footer, page, children }) {
+export default function Layout({ children }) {
   return (
     <div tw='flex flex-col min-h-screen font-sans'>
       <Head>
-        {page.description && (
-          <meta name='description' content={page.description} />
-        )}
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link
           rel='stylesheet'
@@ -38,9 +32,7 @@ export default function Layout({ header, footer, page, children }) {
         <meta name='msapplication-TileColor' content='#da532c' />
         <meta name='theme-color' content='#ffffff' />
       </Head>
-      <Header header={header} />
-      <main tw='flex-1'>{children}</main>
-      <Footer footer={footer} />
+      {children}
     </div>
   )
 }

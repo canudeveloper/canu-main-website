@@ -1,4 +1,4 @@
-import Page from '../components/pages/Page'
+import Page from '../components/Page'
 import get from '../lib/api'
 
 export async function getStaticPaths() {

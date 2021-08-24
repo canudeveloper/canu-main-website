@@ -1,4 +1,4 @@
-import HomePage from '../components/pages/HomePage'
+import Page from '../components/Page'
 import get from '../lib/api'
 
 export async function getStaticProps() {
@@ -16,5 +16,5 @@ export async function getStaticProps() {
 }
 
 export default function Home({ header, footer, page }) {
-  return <HomePage header={header} footer={footer} page={page} />
+  return <Page header={header} footer={footer} page={page} isHome />
 }

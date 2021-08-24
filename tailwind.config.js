@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   theme: {
     extend: {
@@ -24,6 +25,18 @@ module.exports = {
       screens: {
         '3xl': '1920px',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              color: theme('colors.primary.DEFAULT'),
+              '&:hover': {
+                color: theme('colors.primary.light'),
+              },
+            },
+          },
+        },
+      }),
       zIndex: {
         '-10': '-10',
       },
@@ -57,4 +70,5 @@ module.exports = {
       sans: ['Roboto', 'sans-serif'],
     },
   },
+  plugins: [require('@tailwindcss/typography')],
 }

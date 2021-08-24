@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import 'twin.macro'
 import { strapi } from '../../lib/api'
+import Markdown from '../../utils/markdown'
 import Button from '../elements/Button'
 
 export default function Headline({ copy, image }) {
@@ -16,9 +17,9 @@ export default function Headline({ copy, image }) {
               </div>
             )}
             <h2 tw='font-bold text-5xl mb-8 lg:mb-16'>{copy.title}</h2>
-            <p tw='max-w-prose whitespace-pre-wrap mb-8 lg:mb-16 last:mb-0'>
-              {copy.body}
-            </p>
+            <div tw='prose mb-8 lg:mb-16 last:mb-0'>
+              <Markdown>{copy.body}</Markdown>
+            </div>
             <div tw='-m-2'>
               {copy.buttons.map((button) => {
                 return (
@@ -33,7 +34,7 @@ export default function Headline({ copy, image }) {
           </div>
           <div tw='relative w-2/5 hidden lg:block'>
             <Image
-              src={strapi(image.formats.medium.url)}
+              src={strapi(image.formats.large.url)}
               alt={image.alternativeText}
               layout='fill'
               objectFit='cover'

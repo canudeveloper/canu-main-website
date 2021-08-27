@@ -22,6 +22,9 @@ module.exports = {
       letterSpacing: {
         button: '0.25em',
       },
+      maxWidth: {
+        '1/2': '50%',
+      },
       screens: {
         '3xl': '1920px',
       },

@@ -9,8 +9,8 @@ export default function Headline({ copy, image }) {
   return (
     <section>
       <div tw='container'>
-        <div tw='flex flex-wrap py-16 lg:py-32'>
-          <div tw='w-full lg:w-3/5 pr-4'>
+        <div tw='flex flex-wrap justify-between py-16 lg:py-32'>
+          <div tw='mr-4'>
             {copy.label && (
               <div tw='font-medium text-secondary text-xl tracking-widest uppercase'>
                 {copy.label}
@@ -32,7 +32,7 @@ export default function Headline({ copy, image }) {
               })}
             </div>
           </div>
-          <div tw='relative w-2/5 hidden lg:block'>
+          <div tw='flex-1 max-w-1/2 relative hidden lg:block'>
             <Image
               src={strapi(image.formats.large.url)}
               alt={image.alternativeText}

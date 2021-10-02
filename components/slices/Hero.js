@@ -22,12 +22,7 @@ export default function Hero({ image, label, title }) {
           />
         </div>
       )}
-      <div
-        css={[
-          tw`container relative text-center z-10 mb-8`,
-          !image && tw`mt-16`,
-        ]}
-      >
+      <div css={[tw`container relative text-center mb-8`, !image && tw`mt-16`]}>
         {label && (
           <span tw='block text-primary text-xl lg:text-2xl uppercase tracking-widest mb-1'>
             {label}

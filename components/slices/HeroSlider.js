@@ -40,7 +40,7 @@ export default function HeroSlider({ slides }) {
           tw='absolute bottom-0 w-full -mb-4 pointer-events-none'
         />
       </div>
-      <div tw='container relative h-44 z-10'>
+      <div tw='container relative h-44'>
         <AnimatePresence>
           <motion.h1
             key={slide.id}

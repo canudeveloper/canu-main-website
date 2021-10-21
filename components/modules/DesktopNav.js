@@ -1,4 +1,4 @@
-import { Bars, ChevronDown } from '@styled-icons/fa-solid'
+import { ChevronDown } from '@styled-icons/fa-solid'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import tw, { styled } from 'twin.macro'
@@ -54,8 +54,7 @@ export default function DesktopNav({ navItems }) {
 
   return (
     <nav>
-      <Bars size={44} css={tw`lg:hidden p-3`} />
-      <ul tw='hidden lg:flex'>
+      <ul tw='flex'>
         {navItems.map((navItem) => {
           return (
             <li key={navItem.id}>

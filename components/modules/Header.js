@@ -1,11 +1,16 @@
 import { Envelope } from '@styled-icons/fa-solid'
+import { motion, useCycle } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import tw from 'twin.macro'
 import Button from '../elements/Button'
+import MenuToggle from '../elements/MenuToggle'
 import DesktopNav from './DesktopNav'
+import MobileNav from './MobileNav'
 
 export default function Header({ header }) {
+  const [isOpen, toggleOpen] = useCycle(false, true)
+
   return (
     <header tw='flex bg-white shadow-underline h-26 z-10'>
       <div tw='container pt-4 flex justify-between'>
@@ -21,7 +26,7 @@ export default function Header({ header }) {
             </a>
           </Link>
         </div>
-        <div tw='flex flex-col justify-between items-end'>
+        <div tw='hidden lg:flex flex-col justify-between items-end'>
           <div tw='flex items-center justify-end'>
             <ul tw='hidden lg:flex mr-5'>
               {header.email && (
@@ -46,7 +51,15 @@ export default function Header({ header }) {
           </div>
           <DesktopNav navItems={header.navigation} />
         </div>
+        <div tw='lg:hidden relative'>
+          <div tw='absolute top-4 right-14'>
+            <motion.div animate={isOpen ? 'open' : 'closed'} tw='fixed z-10'>
+              <MenuToggle toggle={() => toggleOpen()} />
+            </motion.div>
+          </div>
+        </div>
       </div>
+      <MobileNav isOpen={isOpen} navItems={header.navigation} />
     </header>
   )
 }

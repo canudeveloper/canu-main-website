@@ -64,7 +64,7 @@ export default function DesktopNav({ navItems }) {
                     <NavItem
                       isActive={hasActiveItem || currentPath === navItem.href}
                     >
-                      <div tw='flex items-center'>
+                      <div tw='flex items-center whitespace-nowrap'>
                         {navItem.label}
                         {navItem.dropdown.length !== 0 && (
                           <ChevronDown size={10} tw='ml-1.5' />

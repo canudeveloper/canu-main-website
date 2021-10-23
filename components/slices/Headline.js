@@ -4,6 +4,8 @@ import 'twin.macro'
 import { strapi } from '../../lib/api'
 import Markdown from '../../utils/markdown'
 import Button from '../elements/Button'
+import Heading from '../elements/Heading'
+import Label from '../elements/Label'
 
 export default function Headline({ copy, image }) {
   return (
@@ -11,12 +13,8 @@ export default function Headline({ copy, image }) {
       <div tw='container'>
         <div tw='flex flex-wrap justify-between py-16 lg:py-32'>
           <div tw='mr-4'>
-            {copy.label && (
-              <div tw='font-medium text-secondary text-xl tracking-widest uppercase'>
-                {copy.label}
-              </div>
-            )}
-            <h2 tw='font-bold text-5xl mb-8 lg:mb-16'>{copy.title}</h2>
+            {copy.label && <Label>{copy.label}</Label>}
+            <Heading>{copy.title}</Heading>
             <div tw='prose mb-8 lg:mb-16 last:mb-0'>
               <Markdown>{copy.body}</Markdown>
             </div>

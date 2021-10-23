@@ -44,9 +44,9 @@ export default function HeroSlider({ slides }) {
         <AnimatePresence>
           <motion.h1
             key={slide.id}
-            initial={{ x: '10%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: '-10%', opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ ease: 'easeInOut' }}
             tw='absolute top-0 right-0 px-8 text-right'
           >

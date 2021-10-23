@@ -19,6 +19,9 @@ module.exports = {
         200: '50rem',
         'main-screen': 'calc(100vh - 104px)',
       },
+      lineHeight: {
+        0: 0,
+      },
       letterSpacing: {
         button: '0.25em',
       },

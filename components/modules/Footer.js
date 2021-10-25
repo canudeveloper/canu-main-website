@@ -55,10 +55,10 @@ export default function Footer({ footer }) {
               )}
               {footer.address && (
                 <ListItem>
-                  <a href={`${footer.address}`} tw='flex'>
+                  <div tw='flex'>
                     <Building size={14} css={tw`mr-2.5 mt-1 flex-shrink-0`} />
                     <span tw='whitespace-pre-wrap'>{footer.address}</span>
-                  </a>
+                  </div>
                 </ListItem>
               )}
             </List>

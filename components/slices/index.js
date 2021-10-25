@@ -4,11 +4,13 @@ import pascalize from '../../utils/pascalize'
 import Headline from './Headline'
 import Hero from './Hero'
 import HeroSlider from './HeroSlider'
+import ImageGrid from './ImageGrid'
 
 const components = {
   Headline,
   Hero,
   HeroSlider,
+  ImageGrid,
 }
 
 export default function Slice({ slice }) {

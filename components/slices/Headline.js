@@ -15,20 +15,29 @@ export default function Headline({ copy, image, imageOnLeft }) {
               : tw`justify-items-center text-center`
           }
         >
-          <div tw='col-span-3 xl:col-span-1'>
+          <div tw='lg:col-span-3 xl:col-span-1'>
             <Copy copy={copy} />
           </div>
           {image && (
             <div
-              tw='hidden lg:block relative col-span-2 xl:col-span-1'
-              css={imageOnLeft && tw`order-first`}
+              tw='lg:col-span-2 xl:col-span-1'
+              css={imageOnLeft && tw`lg:order-first`}
             >
-              <div>
+              <div tw='hidden lg:block relative w-full h-full'>
                 <Image
                   src={strapi(image.url)}
                   alt={image.alternativeText}
                   layout='fill'
                   objectFit='cover'
+                />
+              </div>
+              <div tw='lg:hidden'>
+                <Image
+                  src={strapi(image.url)}
+                  alt={image.alternativeText}
+                  layout='responsive'
+                  width={image.width}
+                  height={image.height}
                 />
               </div>
             </div>

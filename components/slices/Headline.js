@@ -1,11 +1,7 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import tw from 'twin.macro'
 import { strapi } from '../../lib/api'
-import Markdown from '../../utils/markdown'
-import Button from '../elements/Button'
-import Heading from '../elements/Heading'
-import Label from '../elements/Label'
+import Copy from '../elements/Copy'
 
 export default function Headline({ copy, image, imageOnLeft }) {
   return (
@@ -20,27 +16,7 @@ export default function Headline({ copy, image, imageOnLeft }) {
           }
         >
           <div tw='col-span-3 xl:col-span-1'>
-            {copy.label && <Label>{copy.label}</Label>}
-            <Heading>{copy.title}</Heading>
-            <div
-              tw='prose'
-              css={copy.buttons.length !== 0 && tw`mb-8 lg:mb-16`}
-            >
-              <Markdown>{copy.body}</Markdown>
-            </div>
-            {copy.buttons.length !== 0 && (
-              <div tw='-m-2'>
-                {copy.buttons.map((button) => {
-                  return (
-                    <Link key={button.id} href={button.href} passHref>
-                      <Button variant={button.style} tw='m-2'>
-                        {button.label}
-                      </Button>
-                    </Link>
-                  )
-                })}
-              </div>
-            )}
+            <Copy copy={copy} />
           </div>
           {image && (
             <div

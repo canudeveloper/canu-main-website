@@ -5,12 +5,14 @@ import Headline from './Headline'
 import Hero from './Hero'
 import HeroSlider from './HeroSlider'
 import ImageGrid from './ImageGrid'
+import VideoPlayer from './VideoPlayer'
 
 const components = {
   Headline,
   Hero,
   HeroSlider,
   ImageGrid,
+  VideoPlayer,
 }
 
 export default function Slice({ slice }) {

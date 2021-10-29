@@ -5,7 +5,6 @@ import React from 'react'
 import tw from 'twin.macro'
 import SubscribeForm from '../elements/SubscribeForm'
 
-const Column = tw.div`w-full md:w-1/3 p-4`
 const Heading = tw.h2`font-bold text-white mb-4`
 const List = tw.ul`text-sm text-gray-light`
 const ListItem = tw.li`mt-2`
@@ -25,8 +24,8 @@ export default function Footer({ footer }) {
   return (
     <footer tw='bg-gray-dark'>
       <div tw='container py-8'>
-        <div tw='flex flex-wrap -m-4'>
-          <Column>
+        <div tw='grid md:grid-cols-3 gap-8'>
+          <div>
             <Heading>Contact</Heading>
             <List>
               {footer.phone && (
@@ -62,8 +61,8 @@ export default function Footer({ footer }) {
                 </ListItem>
               )}
             </List>
-          </Column>
-          <Column>
+          </div>
+          <div>
             <Heading>Explore</Heading>
             <List>
               {footer.navigation.map((link) => {
@@ -76,8 +75,8 @@ export default function Footer({ footer }) {
                 )
               })}
             </List>
-          </Column>
-          <Column>
+          </div>
+          <div>
             <Heading>Get Involved</Heading>
             <SubscribeForm />
             <div tw='text-xs text-gray mb-4'>
@@ -104,7 +103,7 @@ export default function Footer({ footer }) {
               <Social href={footer.instagram} icon={Instagram} />
               <Social href={footer.youtube} icon={Youtube} />
             </ul>
-          </Column>
+          </div>
         </div>
       </div>
     </footer>

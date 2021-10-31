@@ -2,6 +2,7 @@
 /* eslint-disable no-underscore-dangle */
 import pascalize from '../../utils/pascalize'
 import CtaGrid from './CtaGrid'
+import DonateForm from './DonateForm'
 import Headline from './Headline'
 import Hero from './Hero'
 import HeroSlider from './HeroSlider'
@@ -10,6 +11,7 @@ import VideoPlayer from './VideoPlayer'
 
 const components = {
   CtaGrid,
+  DonateForm,
   Headline,
   Hero,
   HeroSlider,

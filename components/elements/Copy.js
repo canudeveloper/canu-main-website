@@ -14,13 +14,11 @@ export default function Copy({ copy }) {
         <Markdown>{copy.body}</Markdown>
       </div>
       {copy.buttons.length !== 0 && (
-        <div tw='-m-2'>
+        <div tw='flex flex-wrap gap-4'>
           {copy.buttons.map((button) => {
             return (
               <Link key={button.id} href={button.href} passHref>
-                <Button variant={button.style} tw='m-2'>
-                  {button.label}
-                </Button>
+                <Button variant={button.style}>{button.label}</Button>
               </Link>
             )
           })}

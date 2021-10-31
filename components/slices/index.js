@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-underscore-dangle */
 import pascalize from '../../utils/pascalize'
+import CtaGrid from './CtaGrid'
 import Headline from './Headline'
 import Hero from './Hero'
 import HeroSlider from './HeroSlider'
@@ -8,6 +9,7 @@ import ImageGrid from './ImageGrid'
 import VideoPlayer from './VideoPlayer'
 
 const components = {
+  CtaGrid,
   Headline,
   Hero,
   HeroSlider,

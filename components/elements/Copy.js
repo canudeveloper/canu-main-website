@@ -2,16 +2,14 @@ import Link from 'next/link'
 import tw from 'twin.macro'
 import Markdown from '../../utils/markdown'
 import Button from './Button'
+import Heading from './Heading'
+import Label from './Label'
 
 export default function Copy({ copy }) {
   return (
     <>
-      {copy.label && (
-        <h3 tw='font-medium text-secondary text-xl tracking-widest uppercase'>
-          {copy.label}
-        </h3>
-      )}
-      <h2 tw='font-bold text-5xl mb-8 lg:mb-12'>{copy.title}</h2>
+      {copy.label && <Label>{copy.label}</Label>}
+      <Heading>{copy.title}</Heading>
       <div tw='prose' css={copy.buttons.length !== 0 && tw`mb-8 lg:mb-16`}>
         <Markdown>{copy.body}</Markdown>
       </div>

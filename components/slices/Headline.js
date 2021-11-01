@@ -25,7 +25,7 @@ export default function Headline({ copy, image, imageOnLeft }) {
             >
               <div tw='hidden lg:block relative w-full h-full'>
                 <Image
-                  src={strapi(image.url)}
+                  src={strapi(image.formats.medium.url)}
                   alt={image.alternativeText}
                   layout='fill'
                   objectFit='cover'
@@ -33,7 +33,7 @@ export default function Headline({ copy, image, imageOnLeft }) {
               </div>
               <div tw='lg:hidden'>
                 <Image
-                  src={strapi(image.url)}
+                  src={strapi(image.formats.small.url)}
                   alt={image.alternativeText}
                   layout='responsive'
                   width={image.width}

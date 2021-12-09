@@ -2,7 +2,7 @@ import 'twin.macro'
 import Heading from '../elements/Heading'
 import ThumbnailLink from '../elements/ThumbnailLink'
 
-export default function CtaGrid({ title, ctas }) {
+export default function Stories({ title, stories }) {
   return (
     <section>
       <div tw='container'>
@@ -11,14 +11,14 @@ export default function CtaGrid({ title, ctas }) {
             {title}
           </Heading>
           <div tw='flex flex-wrap gap-8 justify-center'>
-            {ctas.map((cta) => {
+            {stories.map((story) => {
               return (
                 <ThumbnailLink
-                  key={cta.id}
-                  image={cta.image}
-                  title={cta.title}
-                  label={cta.link.label}
-                  href={cta.link.href}
+                  key={story.id}
+                  image={story.image}
+                  title={story.title}
+                  label='Read'
+                  href={`/stories/${story.slug}`}
                 />
               )
             })}

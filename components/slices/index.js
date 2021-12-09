@@ -7,6 +7,7 @@ import Headline from './Headline'
 import Hero from './Hero'
 import HeroSlider from './HeroSlider'
 import ImageGrid from './ImageGrid'
+import Stories from './Stories'
 import VideoPlayer from './VideoPlayer'
 
 const components = {
@@ -16,6 +17,7 @@ const components = {
   Hero,
   HeroSlider,
   ImageGrid,
+  Stories,
   VideoPlayer,
 }
 
